@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LUXE Fashion Store</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #faf8f4;
+        color: #222;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 7%;
+        background: white;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 30px;
+        letter-spacing: 3px;
+      }
+
+      .logo span,
+      footer span {
+        color: #ad8b61;
+      }
+
+      nav {
+        display: flex;
+        gap: 25px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #333;
+        font-size: 13px;
+      }
+
+      nav a:hover {
+        color: #ad8b61;
+      }
+
+      .cart {
+        font-size: 13px;
+      }
+
+      .menu {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 25px;
+        cursor: pointer;
+      }
+
+      .hero {
+        height: 85vh;
+        background:
+          linear-gradient(90deg, #0009, #0002),
+          url("https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1800")
+            center/cover;
+        display: flex;
+        align-items: center;
+        padding: 0 10%;
+        color: white;
+      }
+
+      .hero-content {
+        max-width: 550px;
+      }
+
+      .hero-content .small {
+        letter-spacing: 3px;
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 65px;
+        line-height: 1.15;
+        margin: 20px 0;
+      }
+
+      .hero h1 span {
+        color: #d8bd9b;
+      }
+
+      .hero p {
+        line-height: 1.8;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 15px 25px;
+        background: #d8bd9b;
+        color: #222;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background: white;
+        transform: translateY(-3px);
+      }
+
+      .intro {
+        text-align: center;
+        padding: 85px 15px;
+      }
+
+      .intro p:first-child {
+        color: #ad8b61;
+        letter-spacing: 3px;
+        font-size: 12px;
+      }
+
+      .intro h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 42px;
+        margin: 15px 0;
+      }
+
+      .intro h2 span {
+        color: #ad8b61;
+      }
+
+      .intro p:last-child {
+        color: #777;
+      }
+
+      .section {
+        padding: 60px 7%;
+      }
+
+      .section h2 {
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        font-size: 38px;
+        margin-bottom: 35px;
+      }
+
+      .collection-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .collection {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+      }
+
+      .collection img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s;
+      }
+
+      .collection:hover img {
+        transform: scale(1.08);
+      }
+
+      .collection h3 {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        text-shadow: 0 2px 8px #000;
+      }
+
+      .filters {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .filter {
+        padding: 10px 22px;
+        background: transparent;
+        border: 1px solid #ad8b61;
+        cursor: pointer;
+      }
+
+      .filter.active,
+      .filter:hover {
+        background: #ad8b61;
+        color: white;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
+
+      .product {
+        background: white;
+        text-align: center;
+        padding-bottom: 20px;
+        transition: 0.3s;
+      }
+
+      .product:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px #0001;
+      }
+
+      .product img {
+        width: 100%;
+        height: 330px;
+        object-fit: cover;
+      }
+
+      .product h3 {
+        margin: 15px 0 8px;
+      }
+
+      .product p {
+        color: #ad8b61;
+        font-weight: bold;
+      }
+
+      .add-cart {
+        margin-top: 15px;
+        padding: 12px 25px;
+        background: #24231f;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .add-cart:hover {
+        background: #ad8b61;
+      }
+
+      .sale {
+        min-height: 400px;
+        background:
+          linear-gradient(#0008, #0008),
+          url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600")
+            center/cover;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 60px 10%;
+      }
+
+      .sale h2 {
+        font-size: 50px;
+        margin: 15px 0;
+      }
+
+      .sale p {
+        margin-bottom: 10px;
+      }
+
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 50px;
+        padding: 100px 10%;
+      }
+
+      .about img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+      }
+
+      .about h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 42px;
+        margin: 20px 0;
+      }
+
+      .about p {
+        line-height: 1.9;
+        color: #777;
+      }
+
+      .newsletter {
+        text-align: center;
+        padding: 85px 15px;
+        background: #eee8de;
+      }
+
+      .newsletter h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 38px;
+        margin-bottom: 15px;
+      }
+
+      .newsletter p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .newsletter input {
+        padding: 14px;
+        width: 280px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      .newsletter button {
+        padding: 14px 22px;
+        border: none;
+        background: #24231f;
+        color: white;
+        cursor: pointer;
+      }
+
+      #message {
+        margin-top: 15px;
+        color: #766044;
+      }
+
+      footer {
+        background: #24231f;
+        color: white;
+        text-align: center;
+        padding: 50px 15px 20px;
+      }
+
+      footer h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        letter-spacing: 3px;
+      }
+
+      footer p {
+        margin: 15px 0;
+        color: #ccc;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin: 25px 0;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .copyright {
+        border-top: 1px solid #555;
+        padding-top: 20px;
+        font-size: 12px;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 18px 5%;
+        }
+
+        .menu {
+          display: block;
+        }
+
+        nav {
+          display: none;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          background: white;
+          flex-direction: column;
+          padding: 25px;
+        }
+
+        nav.show {
+          display: flex;
+        }
+
+        .hero {
+          height: 70vh;
+          padding: 0 7%;
+        }
+
+        .hero h1 {
+          font-size: 43px;
+        }
+
+        .collection-grid,
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .collection {
+          height: 300px;
+        }
+
+        .product img {
+          height: 230px;
+        }
+
+        .about {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .collection-grid,
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .collection {
+          height: 380px;
+        }
+
+        .product img {
+          height: 350px;
+        }
+
+        .hero h1 {
+          font-size: 38px;
+        }
+
+        .about h2 {
+          font-size: 32px;
+        }
+
+        .newsletter input {
+          width: 65%;
+        }
+
+        .footer-links {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h2 class="logo">LUXE<span>.</span></h2>
+
+      <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#collections">Collections</a>
+        <a href="#products">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="cart">Bag: <span id="cartCount">0</span></div>
+
+      <button class="menu" id="menuBtn">☰</button>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="small">NEW SEASON COLLECTION 2026</p>
+        <h1>Style That<br /><span>Speaks For You.</span></h1>
+        <p>Discover your perfect style with our latest fashion collection.</p>
+        <a href="#products" class="btn">SHOP NOW →</a>
+      </div>
+    </section>
+
+    <section class="intro">
+      <p>DISCOVER YOUR STYLE</p>
+      <h2>Fashion Is Your <span>Identity.</span></h2>
+      <p>Beautiful outfits, premium quality and timeless fashion.</p>
+    </section>
+
+    <section id="collections" class="section">
+      <h2>Our Collections</h2>
+
+      <div class="collection-grid">
+        <div class="collection">
+          <img
+            src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=700"
+            alt="Men's fashion"
+          />
+          <h3>Men's Fashion</h3>
+        </div>
+
+        <div class="collection">
+          <img
+            src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700"
+            alt="Women's fashion"
+          />
+          <h3>Women's Fashion</h3>
+        </div>
+
+        <div class="collection">
+          <img
+            src="https://images.unsplash.com/photo-1503919005314-30d93d07d823?w=700"
+            alt="Kids fashion"
+          />
+          <h3>Kids Fashion</h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <h2>Our Latest Products</h2>
+
+      <div class="filters">
+        <button class="filter active" data-filter="All">All</button>
+        <button class="filter" data-filter="Men">Men</button>
+        <button class="filter" data-filter="Women">Women</button>
+        <button class="filter" data-filter="Kids">Kids</button>
+      </div>
+
+      <div class="product-grid">
+        <div class="product" data-category="Women">
+          <img
+            src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600"
+            alt="Premium blazer"
+          />
+          <h3>Premium Blazer</h3>
+          <p>Rs. 6,490</p>
+          <button class="add-cart" data-name="Premium Blazer">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product" data-category="Men">
+          <img
+            src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600"
+            alt="Classic shirt"
+          />
+          <h3>Classic Shirt</h3>
+          <p>Rs. 3,990</p>
+          <button class="add-cart" data-name="Classic Shirt">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product" data-category="Women">
+          <img
+            src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600"
+            alt="Fashion knitwear"
+          />
+          <h3>Fashion Knitwear</h3>
+          <p>Rs. 4,490</p>
+          <button class="add-cart" data-name="Fashion Knitwear">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product" data-category="Men">
+          <img
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"
+            alt="Casual t-shirt"
+          />
+          <h3>Casual T-Shirt</h3>
+          <p>Rs. 2,490</p>
+          <button class="add-cart" data-name="Casual T-Shirt">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product" data-category="Kids">
+          <img
+            src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600"
+            alt="Kids outfit"
+          />
+          <h3>Kids Outfit</h3>
+          <p>Rs. 2,990</p>
+          <button class="add-cart" data-name="Kids Outfit">Add to Cart</button>
+        </div>
+
+        <div class="product" data-category="Women">
+          <img
+            src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600"
+            alt="Elegant dress"
+          />
+          <h3>Elegant Dress</h3>
+          <p>Rs. 5,990</p>
+          <button class="add-cart" data-name="Elegant Dress">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="sale">
+      <div>
+        <p>SPECIAL OFFER</p>
+        <h2>Up To 20% OFF</h2>
+        <p>Upgrade your wardrobe with our exclusive collection.</p>
+        <a href="#products" class="btn">SHOP NOW →</a>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div>
+        <p>ABOUT OUR BRAND</p>
+        <h2>Wear Your Style With Confidence.</h2>
+        <p>
+          LUXE Fashion brings you modern, stylish and comfortable clothing. Our
+          goal is to make every customer feel confident and special with premium
+          fashion.
+        </p>
+      </div>
+
+      <img
+        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800"
+        alt="Fashion shopping"
+      />
+    </section>
+
+    <section class="newsletter" id="contact">
+      <h2>Join Our Fashion Family</h2>
+      <p>Subscribe to get updates about new collections and offers.</p>
+
+      <form id="subscribeForm">
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <p id="message"></p>
+    </section>
+
+    <footer>
+      <h2>LUXE<span>.</span></h2>
+      <p>Fashion is not just clothing. It's your identity.</p>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#products">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <p class="copyright">© 2026 LUXE Fashion. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const navbar = document.getElementById("navbar");
+
+      menuBtn.addEventListener("click", function () {
+        navbar.classList.toggle("show");
+      });
+
+      navbar.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          navbar.classList.remove("show");
+        });
+      });
+
+      let cartCount = 0;
+
+      const cartDisplay = document.getElementById("cartCount");
+      const cartButtons = document.querySelectorAll(".add-cart");
+
+      cartButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          cartCount++;
+          cartDisplay.textContent = cartCount;
+          alert(button.dataset.name + " added to your cart!");
+        });
+      });
+
+      const filterButtons = document.querySelectorAll(".filter");
+      const products = document.querySelectorAll(".product");
+
+      filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelector(".filter.active").classList.remove("active");
+          button.classList.add("active");
+
+          const category = button.dataset.filter;
+
+          products.forEach(function (product) {
+            if (category === "All" || product.dataset.category === category) {
+              product.style.display = "block";
+            } else {
+              product.style.display = "none";
+            }
+          });
+        });
+      });
+
+      const form = document.getElementById("subscribeForm");
+      const email = document.getElementById("email");
+      const message = document.getElementById("message");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        message.textContent = "Thank you for subscribing to LUXE Fashion!";
+        email.value = "";
+      });
+    </script>
+  </body>
+</html>
