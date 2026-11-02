@@ -1,0 +1,454 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #faf8f4;
+  color: #222;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 7%;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+
+.logo span,
+footer h2 span {
+  color: #ad8b61;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #ad8b61;
+}
+
+.cart {
+  font-size: 14px;
+}
+
+.menu {
+  display: none;
+  border: none;
+  background: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.hero {
+  height: 85vh;
+  background:
+    linear-gradient(90deg, #0009, #0002),
+    url("https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1800")
+      center/cover;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  color: white;
+}
+
+.hero-content {
+  max-width: 550px;
+}
+
+.hero-content p:first-child {
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.hero h1 {
+  font-size: 65px;
+  line-height: 1.15;
+  margin: 20px 0;
+}
+
+.hero h1 span {
+  color: #d8bd9b;
+}
+
+.hero-content p {
+  line-height: 1.8;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 25px;
+  background: #d8bd9b;
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.intro {
+  text-align: center;
+  padding: 85px 15px;
+}
+
+.intro p:first-child,
+.about div > p:first-child {
+  color: #ad8b61;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.intro h2 {
+  font-size: 38px;
+  margin: 15px 0;
+}
+
+.intro h2 span {
+  color: #ad8b61;
+}
+
+.intro p:last-child {
+  color: #777;
+}
+
+.section {
+  padding: 60px 7%;
+}
+
+.section > h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 35px;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.collection {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.collection img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.collection:hover img {
+  transform: scale(1.08);
+}
+
+.collection h3 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 25px;
+  text-shadow: 0 2px 8px #000;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #ad8b61;
+  cursor: pointer;
+}
+
+.filter.active,
+.filter:hover {
+  background: #ad8b61;
+  color: white;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.product {
+  background: white;
+  text-align: center;
+  padding-bottom: 20px;
+  transition: 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px #0001;
+}
+
+.product img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+}
+
+.product h3 {
+  margin: 15px 0 8px;
+}
+
+.product p {
+  color: #ad8b61;
+  font-weight: bold;
+}
+
+.add-cart {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: #24231f;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.add-cart:hover {
+  background: #ad8b61;
+}
+
+.sale {
+  min-height: 380px;
+  background:
+    linear-gradient(#0008, #0008),
+    url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600")
+      center/cover;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 60px 10%;
+}
+
+.sale h2 {
+  font-size: 48px;
+  margin: 15px 0;
+}
+
+.sale p {
+  margin-bottom: 10px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+  padding: 100px 10%;
+}
+
+.about h2 {
+  font-size: 40px;
+  margin: 20px 0;
+}
+
+.about div > p:last-child {
+  line-height: 1.9;
+  color: #777;
+}
+
+.about img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.newsletter {
+  text-align: center;
+  padding: 80px 15px;
+  background: #eee8de;
+}
+
+.newsletter h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.newsletter p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.newsletter input {
+  padding: 14px;
+  width: 280px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.newsletter button {
+  padding: 14px 22px;
+  border: none;
+  background: #24231f;
+  color: white;
+  cursor: pointer;
+}
+
+footer {
+  background: #24231f;
+  color: white;
+  text-align: center;
+  padding: 50px 15px 20px;
+}
+
+footer h2 {
+  font-size: 32px;
+  letter-spacing: 3px;
+}
+
+footer p {
+  margin: 15px 0;
+  color: #ccc;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 25px 0;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.copyright {
+  border-top: 1px solid #555;
+  padding-top: 20px;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 18px 5%;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    padding: 25px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .hero {
+    height: 70vh;
+    padding: 0 7%;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .collection-grid,
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collection {
+    height: 300px;
+  }
+
+  .product img {
+    height: 230px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .sale h2 {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 23px;
+  }
+
+  .cart {
+    font-size: 12px;
+  }
+
+  .collection-grid,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collection {
+    height: 380px;
+  }
+
+  .product img {
+    height: 350px;
+  }
+
+  .intro h2 {
+    font-size: 29px;
+  }
+
+  .about h2 {
+    font-size: 32px;
+  }
+
+  .newsletter input {
+    width: 65%;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+  }
+}
